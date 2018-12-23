@@ -13,4 +13,4 @@ license = "MIT"
 travis-ci = { repository = "ryanq/quark" }
 
 [dev-dependencies]
-spectral = "*"
+spectral = "0.6.0"
