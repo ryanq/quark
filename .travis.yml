@@ -1,0 +1,18 @@
+language: rust
+cache: cargo
+rust:
+  - stable
+  - beta
+  - nightly
+
+# - Always test things that aren't pushes (like PRs)
+# - Never test tags or pushes to non-master branches (wait for PR)
+if: type != push OR (tag IS blank AND branch = master)
+
+script:
+  - cargo test --examples
+  - cargo test --doc
+  - cargo test --lib
+
+allow_failures:
+  - rust: nightly

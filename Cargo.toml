@@ -9,5 +9,8 @@ repository = "https://github.com/ryanq/quark"
 
 license = "MIT"
 
+[badges]
+travis-ci = { repository = "ryanq/quark" }
+
 [dev-dependencies]
 spectral = "*"
