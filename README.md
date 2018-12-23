@@ -2,6 +2,8 @@
 
 Types for manipulating numeric primitives at the bit level.
 
+[![Build Status](https://travis-ci.org/ryanq/quark.svg?branch=master)](https://travis-ci.org/ryanq/quark)
+
 The `quark` crate provides traits for accessing parts of numeric primitives and adds new types
 to represent numbers using bit counts that aren't included in the standard library.
 
