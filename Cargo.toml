@@ -1,0 +1,13 @@
+[package]
+name = "quark"
+version = "1.0.0"
+edition = "2018"
+
+authors = ["Ryan Quattlebaum <ryan.quattlebaum@icloud.com>"]
+description = "Types for manipulating numeric primitives at the bit level."
+repository = "https://github.com/ryanq/quark"
+
+license = "MIT"
+
+[dev-dependencies]
+spectral = "*"
