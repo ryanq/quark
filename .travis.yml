@@ -3,12 +3,9 @@ language: rust
 cache: cargo
 
 # run builds if:
-#  - the build is triggered externally
 #  - the commit is a push to master (maintainers only)
 #  - the commit is a PR on master
-if: type = api \
-    OR type = push AND branch = master \
-    OR type = pull_request AND branch = master
+if: type = push AND branch = master OR type = pull_request AND branch = master
 
 addons:
   apt:
@@ -16,7 +13,7 @@ addons:
       - libcurl4-openssl-dev
       - libelf-dev
       - libdw-dev
-      # - binutils-dev # required for --verify on coveralls
+      - binutils-dev # required for --verify on coveralls
 
 rust:
   - nightly
@@ -32,6 +29,9 @@ script:
   - travis-cargo test
   # - travis-cargo bench
   - travis-cargo --only stable doc
+
+after_success:
+  - travis-cargo coveralls --no-sudo --verify
 
 env:
   global:
