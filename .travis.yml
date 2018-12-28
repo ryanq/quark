@@ -13,7 +13,7 @@ addons:
       - libcurl4-openssl-dev
       - libelf-dev
       - libdw-dev
-      - binutils-dev # required for --verify on coveralls
+      - binutils-dev
       - cmake
     sources:
       - kalakris-cmake
