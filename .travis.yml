@@ -14,6 +14,9 @@ addons:
       - libelf-dev
       - libdw-dev
       - binutils-dev # required for --verify on coveralls
+      - cmake
+    sources:
+      - kalakris-cmake
 
 rust:
   - nightly
@@ -22,20 +25,19 @@ rust:
   - 1.31.0 # bump as minimum supported Rust version changes
 
 before_script:
-  - pip install 'travis-cargo<0.2' --user && export PATH=$HOME/.local/bin:$PATH
+  - export PATH=$HOME/.cargo/bin:$PATH
+  - cargo install cargo-update
+  - cargo install cargo-travis
+  - cargo install-update -a
 
 script:
-  - travis-cargo build
-  - travis-cargo test
-  # - travis-cargo bench
-  - travis-cargo --only stable doc
+  - cargo build
+  - cargo test
+  # - cargo bench
+  - cargo --only stable doc
 
 after_success:
-  - travis-cargo coveralls --no-sudo --verify
-
-env:
-  global:
-    - TRAVIS_CARGO_NIGHTLY_FEATURE=""
+  - cargo coveralls
 
 matrix:
   allow_failures:
