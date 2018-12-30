@@ -29,10 +29,12 @@ script:
   # - cargo bench
   - cargo doc
 
-after_success:
-  - rustup toolchain install nightly
-  - cargo +nightly install cargo-tarpaulin
-  - cargo +nightly tarpaulin --ciserver travis-ci --coveralls $TRAVIS_JOB_ID
+after_success: |
+  if [[ "$TRAVIS_RUST_VERSION" == nightly ]]; then
+    rustup toolchain install nightly
+    cargo +nightly install cargo-tarpaulin
+    cargo +nightly tarpaulin --ciserver travis-ci --coveralls $TRAVIS_JOB_ID
+  fi
 
 matrix:
   allow_failures:
