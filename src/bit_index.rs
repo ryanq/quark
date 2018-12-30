@@ -147,35 +147,35 @@ mod test {
             .that( &byte.bits(4..) )
             .is_equal_to( 5 );
 
-        asserting("bits(Range) includes the start bit")
+        asserting!("bits(Range) includes the start bit")
             .that( &byte.bits(4..8) )
             .is_equal_to( 5 );
-        asserting("bits(Range) excludes the end bit")
+        asserting!("bits(Range) excludes the end bit")
             .that( &byte.bits(0..4) )
             .is_equal_to( 10 );
 
-        asserting("bits(RangeInclusive) includes the start bit")
+        asserting!("bits(RangeInclusive) includes the start bit")
             .that( &byte.bits(4..=7) )
             .is_equal_to( 5 );
-        asserting("bits(RangeInclusive) includes the end bit")
+        asserting!("bits(RangeInclusive) includes the end bit")
             .that( &byte.bits(0..=4) )
             .is_equal_to( 26 );
 
-        asserting("bits(RangeEU) excludes the start bit")
+        asserting!("bits(RangeEU) excludes the start bit")
             .that( &byte.bits(RangeEU(4)) )
             .is_equal_to( 2 );
 
-        asserting("bits(RangeEE) excludes the start bit")
+        asserting!("bits(RangeEE) excludes the start bit")
             .that( &byte.bits(RangeEE(4, 8)) )
             .is_equal_to( 2 );
-        asserting("bits(RangeEE) excludes the end bit")
+        asserting!("bits(RangeEE) excludes the end bit")
             .that( &byte.bits(RangeEE(0, 4)) )
             .is_equal_to( 5 );
 
-        asserting("bits(RangeEI) excludes the start bit")
+        asserting!("bits(RangeEI) excludes the start bit")
             .that( &byte.bits(RangeEI(4, 7)) )
             .is_equal_to( 2 );
-        asserting("bits(RangeEI) includes the end bit")
+        asserting!("bits(RangeEI) includes the end bit")
             .that( &byte.bits(RangeEI(0, 4)) )
             .is_equal_to( 13 );
     }
@@ -270,35 +270,35 @@ mod test {
             .that( &byte.bits(4..) )
             .is_equal_to( -6 );
 
-        asserting("bits(Range) includes the start bit")
+        asserting!("bits(Range) includes the start bit")
             .that( &byte.bits(4..8) )
             .is_equal_to( 10 );
-        asserting("bits(Range) excludes the end bit")
+        asserting!("bits(Range) excludes the end bit")
             .that( &byte.bits(0..5) )
             .is_equal_to( 6 );
 
-        asserting("bits(RangeInclusive) includes the start bit")
+        asserting!("bits(RangeInclusive) includes the start bit")
             .that( &byte.bits(4..=7) )
             .is_equal_to( 10 );
-        asserting("bits(RangeInclusive) includes the end bit")
+        asserting!("bits(RangeInclusive) includes the end bit")
             .that( &byte.bits(0..=5) )
             .is_equal_to( 38 );
 
-        asserting("bits(RangeEU) excludes the start bit")
+        asserting!("bits(RangeEU) excludes the start bit")
             .that( &byte.bits(RangeEU(4)) )
             .is_equal_to( -3 );
 
-        asserting("bits(RangeEE) excludes the start bit")
+        asserting!("bits(RangeEE) excludes the start bit")
             .that( &byte.bits(RangeEE(4, 8)) )
             .is_equal_to( 5 );
-        asserting("bits(RangeEE) excludes the end bit")
+        asserting!("bits(RangeEE) excludes the end bit")
             .that( &byte.bits(RangeEE(0, 2)) )
             .is_equal_to( 1 );
 
-        asserting("bits(RangeEI) excludes the start bit")
+        asserting!("bits(RangeEI) excludes the start bit")
             .that( &byte.bits(RangeEI(2, 4)) )
             .is_equal_to( 0 );
-        asserting("bits(RangeEI) includes the end bit")
+        asserting!("bits(RangeEI) includes the end bit")
             .that( &byte.bits(RangeEI(2, 5)) )
             .is_equal_to( 4 );
     }

@@ -3,6 +3,7 @@
 Types for manipulating numeric primitives at the bit level.
 
 [![Build Status](https://travis-ci.org/ryanq/quark.svg?branch=master)](https://travis-ci.org/ryanq/quark)
+[![Coverage Status](https://coveralls.io/repos/github/ryanq/quark/badge.svg?branch=master)](https://coveralls.io/github/ryanq/quark?branch=master)
 [![Docs.rs](https://docs.rs/quark/badge.svg)](https://docs.rs/quark)
 
 The `quark` crate provides traits for accessing parts of numeric primitives and adds new types
