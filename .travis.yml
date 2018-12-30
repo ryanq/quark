@@ -21,7 +21,7 @@ rust:
 before_script:
   - export PATH=$HOME/.cargo/bin:$PATH
   - cargo install cargo-update || true
-  - cargo +nightly install cargo-tarpaulin || true
+  - [ "$TRAVIS_RUST_VERSION" == "nightly" ] && cargo install cargo-tarpaulin || true
   - cargo install-update -a
 
 script:
@@ -31,7 +31,7 @@ script:
   - cargo doc
 
 after_success:
-  - cargo +nightly tarpaulin --ciserver travis-ci --coveralls $TRAVIS_JOB_ID
+  - [ "$TRAVIS_RUST_VERSION" == "nightly" ] && cargo tarpaulin --ciserver travis-ci --coveralls $TRAVIS_JOB_ID
 
 matrix:
   allow_failures:
