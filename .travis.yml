@@ -30,7 +30,7 @@ script:
   - cargo doc
 
 after_success: |
-  if [[ "$TRAVIS_RUST_VERSION" == nightly ]]; then
+  if [[ "$TRAVIS_RUST_VERSION" == "stable" ]]; then
     rustup toolchain install nightly
     cargo +nightly install cargo-tarpaulin
     cargo +nightly tarpaulin --ciserver travis-ci --coveralls $TRAVIS_JOB_ID
