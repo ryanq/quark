@@ -7,7 +7,7 @@
 //!
 //! Accessing a bit or range of bits in a numeric primitive can be awkward and less than readable
 //! using shifts and masks:
-//! 
+//!
 //! ```
 //! # let big: u16 = 0x35;
 //! let small = big >> 2 & 0x1f;
