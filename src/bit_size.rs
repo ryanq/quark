@@ -13,7 +13,7 @@
 /// ```
 pub trait BitSize {
     /// The size of the type in bits.
-    const BIT_SIZE: usize;
+    const BIT_SIZE:usize;
 }
 
 macro_rules! bit_size_impl {
