@@ -21,7 +21,7 @@ macro_rules! bit_size_impl {
         impl BitSize for $type {
             const BIT_SIZE: usize = $sz;
         }
-    }
+    };
 }
 
 bit_size_impl!(u8, 8);
@@ -29,12 +29,16 @@ bit_size_impl!(u16, 16);
 bit_size_impl!(u32, 32);
 bit_size_impl!(u64, 64);
 bit_size_impl!(u128, 128);
-#[cfg(target_pointer_width = "32")] bit_size_impl!(usize, 32);
-#[cfg(target_pointer_width = "64")] bit_size_impl!(usize, 64);
+#[cfg(target_pointer_width = "32")]
+bit_size_impl!(usize, 32);
+#[cfg(target_pointer_width = "64")]
+bit_size_impl!(usize, 64);
 bit_size_impl!(i8, 8);
 bit_size_impl!(i16, 16);
 bit_size_impl!(i32, 32);
 bit_size_impl!(i64, 64);
 bit_size_impl!(i128, 128);
-#[cfg(target_pointer_width = "32")] bit_size_impl!(isize, 32);
-#[cfg(target_pointer_width = "64")] bit_size_impl!(isize, 64);
+#[cfg(target_pointer_width = "32")]
+bit_size_impl!(isize, 32);
+#[cfg(target_pointer_width = "64")]
+bit_size_impl!(isize, 64);

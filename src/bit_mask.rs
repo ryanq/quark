@@ -25,15 +25,21 @@ pub trait BitMask: BitSize {
 }
 
 macro_rules! bit_mask_impl {
-    ($type:ty, _, $s_ty:ty) => { bit_mask_impl!($type, $type, $s_ty); };
-    ($type:ty, $u_ty:ty, _) => { bit_mask_impl!($type, $u_ty, $type); };
+    ($type:ty, _, $s_ty:ty) => {
+        bit_mask_impl!($type, $type, $s_ty);
+    };
+    ($type:ty, $u_ty:ty, _) => {
+        bit_mask_impl!($type, $u_ty, $type);
+    };
     ($type:ty, $u_ty:ty, $s_ty:ty) => {
         impl BitMask for $type {
             fn mask(size: usize) -> Self {
                 let high_bit = ((1 as $u_ty) << (Self::BIT_SIZE - 1)) as $s_ty;
                 match size {
                     0 => 0,
-                    s if s < Self::BIT_SIZE => (((high_bit >> s) as $u_ty) >> Self::BIT_SIZE - s) as Self,
+                    s if s < Self::BIT_SIZE => {
+                        (((high_bit >> s) as $u_ty) >> Self::BIT_SIZE - s) as Self
+                    }
                     _ => (high_bit >> Self::BIT_SIZE - 1) as Self,
                 }
             }
@@ -60,43 +66,43 @@ bit_mask_impl!(isize, usize, _);
 
 #[cfg(test)]
 mod test {
-    use spectral::prelude::*;
     use super::*;
+    use spectral::prelude::*;
 
     #[test]
     fn calculating_masks() {
         asserting!("masks of length 0 have no bits set")
-            .that( &u8::mask(0) )
-            .is_equal_to( 0 );
-        
+            .that(&u8::mask(0))
+            .is_equal_to(0);
+
         asserting!("masks have the correct number of bits set")
-            .that( &[u8::mask(7), u8::mask(4), u8::mask(3)] )
-            .is_equal_to( &[0x07f, 0x0f, 0x07] );
+            .that(&[u8::mask(7), u8::mask(4), u8::mask(3)])
+            .is_equal_to(&[0x07f, 0x0f, 0x07]);
 
         asserting!("masks longer than the bit length have all bits set")
-            .that( &u8::mask(10) )
-            .is_equal_to( 0xff );
+            .that(&u8::mask(10))
+            .is_equal_to(0xff);
     }
 
     #[test]
     fn masking_values() {
         asserting!("masking to 0 bits returns 0")
-            .that( &145u8.mask_to(0) )
-            .is_equal_to( 0 );
+            .that(&145u8.mask_to(0))
+            .is_equal_to(0);
 
         asserting!("masking to a number truncates the value")
-            .that( &255u8.mask_to(4) )
-            .is_equal_to( 15 );
+            .that(&255u8.mask_to(4))
+            .is_equal_to(15);
 
         asserting!("masking to more bits than the bit length returns the number")
-            .that( &204u8.mask_to(10) )
-            .is_equal_to( 204 );
+            .that(&204u8.mask_to(10))
+            .is_equal_to(204);
     }
 
     #[test]
     fn signed_masks() {
         asserting!("signed masks are the same as unsigned masks")
-            .that( &(u8::mask(4), i8::mask(4)) )
-            .is_equal_to( (0x0f, 0x0f) );
+            .that(&(u8::mask(4), i8::mask(4)))
+            .is_equal_to((0x0f, 0x0f));
     }
 }
