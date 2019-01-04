@@ -49,6 +49,17 @@
 //! order to return a constant for each type. The `BitSize` trait adds a `BIT_SIZE` constant to the
 //! numeric types that can be used in implementing traits without needing another method.
 //!
+//! # Sign Extension
+//!
+//! The `Signs` trait adds methods for checking the sign bit on unsigned primitives (and signed ones) and for sign-extending values an arbitrary number of bits:
+//!
+//! ```
+//! # use quark::Signs;
+//! # let unsigned = 0x00ff_ffffu32;
+//! let signed = unsigned.sign_extend(8);
+//! # assert_eq!(signed, 0xffff_ffff);
+//! ```
+//!
 //! # Why `quark`?
 //!
 //! Because our programs are primitives at the very lowest level, types like `i32`, `u8`, and
@@ -62,7 +73,9 @@
 mod bit_index;
 mod bit_mask;
 mod bit_size;
+mod signs;
 
 pub use self::bit_index::*;
 pub use self::bit_mask::*;
 pub use self::bit_size::*;
+pub use self::signs::*;
