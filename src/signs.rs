@@ -12,7 +12,7 @@ use crate::BitSize;
 ///
 /// let value: u32 = 0xffff_fff0;
 /// assert_eq!(value.sign_bit(), true);
-/// 
+///
 /// let value: u32 = 0x0000_8000;
 /// assert_eq!(value.sign_extend(16), 0xffff_8000);
 /// ```
