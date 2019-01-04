@@ -1,3 +1,5 @@
+#![deny(missing_docs)]
+
 //! Types for manipulating numeric primitives at the bit level.
 //!
 //! The `quark` crate provides traits for accessing parts of numeric primitives and adds new types
@@ -67,8 +69,6 @@
 //! quarks are at that next level w.r.t. atoms.
 //!
 //! Also, I have an affinity for names with a 'Q' because my last name starts with one.
-
-#![deny(missing_docs)]
 
 mod bit_index;
 mod bit_mask;
