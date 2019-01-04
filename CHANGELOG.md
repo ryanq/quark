@@ -6,6 +6,7 @@ All notable changes (and upcoming changes) to this crate will be documented in t
 - CHANGELOG.md
 - Travis CI configuration.
 - Badges for documentation and build status on Travis.
+- `Signs` trait which provides methods for checking the sign bit of a primitive and for sign-extending primitive values.
 
 ## 1.0.0 - 2018-12-23
 ### Added
