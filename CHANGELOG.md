@@ -2,6 +2,8 @@
 All notable changes (and upcoming changes) to this crate will be documented in this file. This format is based on [Keep a Changelog], and this project adheres to [Semantic Versioning].
 
 ## [Unreleased]
+
+## [1.1.0] - 2019-01-04
 ### Added
 - CHANGELOG.md
 - Travis CI configuration.
@@ -17,4 +19,5 @@ All notable changes (and upcoming changes) to this crate will be documented in t
 [Semantic Versioning]: https://semver.org/spec/v2.0.0.html
 [Keep a Changelog]: https://keepachangelog.com/en/1.0.0/
 
-[Unreleased]: https://github.com/ryanq/quark/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/ryanq/quark/compare/v1.1.0...HEAD
+[1.1.0]: https://github.com/ryanq/quark/compare/v1.0.0...v1.1.0
